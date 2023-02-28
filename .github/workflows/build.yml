@@ -95,6 +95,7 @@ jobs:
           - android
     runs-on: ubuntu-20.04
     steps:
+    - uses: seanmiddleditch/gha-setup-ninja@master
     - uses: actions/checkout@v2
     - name: Disk Cleanup
       run: |
@@ -106,9 +107,7 @@ jobs:
         # 17GB
         sudo rm -rf /usr/share/dotnet
         df -h
-    - name: Build Artifact
-      uses: seanmiddleditch/gha-setup-ninja@master
-      run: ./build.${{ matrix.name }}.sh "${{ github.event.inputs.commitHash }}"
+    - run: ./build.${{ matrix.name }}.sh "${{ github.event.inputs.commitHash }}"
     - name: Upload Artifact
       uses: actions/upload-artifact@v1
       with:
