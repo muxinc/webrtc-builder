@@ -95,6 +95,7 @@ jobs:
           - android
     runs-on: ubuntu-20.04
     steps:
+    - uses: seanmiddleditch/gha-setup-ninja@master
     - uses: actions/checkout@v2
     - name: Disk Cleanup
       run: |
