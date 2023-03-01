@@ -111,6 +111,7 @@ jobs:
         sudo rm -rf /usr/local/share/boost
         # 17GB
         sudo rm -rf /usr/share/dotnet
+        sudo apt-get autoremove -y android-sdk
         df -h
     - run: ./build.${{ matrix.name }}.sh "${{ github.event.inputs.commitHash }}"
     - name: Upload Artifact
