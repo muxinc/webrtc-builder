@@ -112,7 +112,6 @@ jobs:
         # 17GB
         sudo rm -rf /usr/share/dotnet
         sudo apt-get autoremove -y android-sdk
-        sudo apt-get purge -y erlang*
         sudo rm -rf ~/.bazel ~/.bazelrc ~/.cache/bazel /usr/local/bin/bazel /etc/bazelrc /usr/local/lib/bazel
         df -h
     - run: ./build.${{ matrix.name }}.sh "${{ github.event.inputs.commitHash }}"
